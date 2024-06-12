@@ -28,7 +28,7 @@ type ArticleParamsFormProps = {
 export const ArticleParamsForm = ({
 	setArticleState,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const rootRef = useRef<HTMLElement>(null);
 	const [selectedFont, setSelectedFont] = useState<OptionType>(
 		defaultArticleState.fontFamilyOption
@@ -47,21 +47,21 @@ export const ArticleParamsForm = ({
 	);
 
 	const handleClick = () => {
-		setIsOpen(!isOpen);
+		setIsMenuOpen(!isMenuOpen);
 	};
 
 	const handleClose = (value: boolean) => {
-		setIsOpen(value);
+		setIsMenuOpen(value);
 	};
 
 	useOutsideClickClose({
-		isOpen,
+		isOpen: isMenuOpen,
 		rootRef,
 		onChange: handleClose,
 	});
 
 	const classNameAside = clsx(styles.container, {
-		[styles.container_open]: isOpen,
+		[styles.container_open]: isMenuOpen,
 	});
 
 	const handleSubmit = (e: SyntheticEvent) => {
@@ -83,7 +83,7 @@ export const ArticleParamsForm = ({
 
 	return (
 		<>
-			<ArrowButton handleClick={handleClick} isOpen={isOpen} />
+			<ArrowButton handleClick={handleClick} isMenuOpen={isMenuOpen} />
 			<aside className={classNameAside} ref={rootRef}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<>

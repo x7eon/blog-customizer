@@ -8,15 +8,15 @@ export type OnClick = () => void;
 
 type ArrowButtonProps = {
 	handleClick: OnClick;
-	isOpen: boolean;
+	isMenuOpen: boolean;
 };
 
 export const ArrowButton = (props: ArrowButtonProps) => {
 	const classNameArrowButton = clsx(styles.container, {
-		[styles.container_open]: props.isOpen,
+		[styles.container_open]: props.isMenuOpen,
 	});
 	const classNameArrowImage = clsx(styles.arrow, {
-		[styles.arrow_open]: props.isOpen,
+		[styles.arrow_open]: props.isMenuOpen,
 	});
 
 	return (

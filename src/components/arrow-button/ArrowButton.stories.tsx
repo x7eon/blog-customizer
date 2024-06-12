@@ -17,7 +17,7 @@ export const ArrowButtonStory: Story = {
 	render: () => {
 		return (
 			<>
-				<ArrowButton handleClick={handleClick} isOpen={false} />
+				<ArrowButton handleClick={handleClick} isMenuOpen={false} />
 			</>
 		);
 	},
